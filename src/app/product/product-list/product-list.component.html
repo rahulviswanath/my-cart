@@ -1,0 +1,29 @@
+<h2>Products</h2>
+
+<div class="row">
+  <div class="col-12 col-md-6 col-lg-4" *ngFor="let product of products" style="margin-top:10px">
+      <div class="card">
+          <div class="card-body">
+              <h4 class="card-title">
+                <a [title]="product.name + ' details'">
+                  {{ product.name }}
+                </a>
+              </h4>
+              <p class="card-text" *ngIf="product.description; else emptyDescription">
+                Description: {{ product.description }}
+              </p>
+              <ng-template #emptyDescription>
+                <p class="card-text">-</p>
+              </ng-template>
+            
+              <div class="row">
+                  <div class="col">
+                      <a href="#" class="btn btn-success btn-block" (click)="checkOut()">Checkout</a>
+                  </div>
+                  <div class="col">
+                      <a href="#" class="btn btn-success btn-block" (click)="addToCard()">Add to cart</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
